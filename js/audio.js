@@ -289,7 +289,13 @@ class AudioEngine {
   /* --------------------------------------------------------------------------
      INDONESIAN TEXT-TO-SPEECH (TTS) NARRATION
      -------------------------------------------------------------------------- */
-  speak(text, onEndCallback = null) {
+  speak(text, onEndCallback = null, force = false) {
+    // Jangan bunyikan narasi jika dinonaktifkan di pengaturan
+    if (window.stateManager && !window.stateManager.data.settings.voiceEnabled && !force) {
+      if (onEndCallback) onEndCallback();
+      return;
+    }
+
     if (!this.speechSynth || !text) {
       if (onEndCallback) onEndCallback();
       return;

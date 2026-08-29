@@ -3,7 +3,7 @@
    Tracks student progress, stars, levels unlocked, stats, and achievements
    ========================================================================== */
 
-const STORAGE_KEY = 'PETUALANGAN_PINTAR_DATA_V1';
+const STORAGE_KEY = 'PETUALANGAN_PINTAR_DATA_V2';
 
 const DEFAULT_STATE = {
   profile: {
@@ -46,7 +46,7 @@ const DEFAULT_STATE = {
     bgmEnabled: true,
     sfxVolume: 0.8,
     sfxEnabled: true,
-    voiceEnabled: true
+    voiceEnabled: false
   }
 };
 

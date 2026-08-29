@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>PETUALANGAN PINTAR - Media Belajar Membaca & Berhitung SD Kelas 1</title>
-  <meta name="description" content="Media pembelajaran interaktif game-based learning untuk siswa SD Kelas 1 belajar membaca dan berhitung bersama Piko.">
+  <meta name="description"
+    content="Media pembelajaran interaktif game-based learning untuk siswa SD Kelas 1 belajar membaca dan berhitung bersama Piko.">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- Responsive Portrait App Shell (1080x1920 Proportions) -->
   <div id="app-container">
-    
+
     <!-- Floating Background Sky Clouds -->
     <div class="cloud-bg cloud-1"></div>
     <div class="cloud-bg cloud-2"></div>
@@ -23,16 +26,23 @@
     <!-- Global Top Navigation HUD Bar -->
     <header class="top-nav" id="main-top-nav">
       <div class="nav-left">
-        <div class="star-counter" onclick="window.app.showScreen('screen-achievements');" title="Lihat Bintang & Prestasi">
+        <div class="star-counter" onclick="window.app.showScreen('screen-achievements');"
+          title="Lihat Bintang & Prestasi">
           <span class="star-icon-anim">⭐</span>
           <span class="star-count-text" id="hud-stars-count">0</span>
         </div>
       </div>
       <div class="nav-right">
-        <div class="avatar-badge" onclick="window.app.showScreen('screen-profile');" title="Profil Siswa" id="hud-avatar">
+        <button class="btn-cartoon btn-yellow btn-icon-only" onclick="window.app.toggleFullscreen();"
+          title="Layar Penuh (Fullscreen)" id="btn-fullscreen">
+          ⛶
+        </button>
+        <div class="avatar-badge" onclick="window.app.showScreen('screen-profile');" title="Profil Siswa"
+          id="hud-avatar">
           👦
         </div>
-        <button class="btn-cartoon btn-yellow btn-icon-only" onclick="window.app.showScreen('screen-settings');" title="Pengaturan">
+        <button class="btn-cartoon btn-yellow btn-icon-only" onclick="window.app.showScreen('screen-settings');"
+          title="Pengaturan">
           ⚙️
         </button>
       </div>
@@ -56,25 +66,26 @@
           <svg viewBox="0 0 120 120" width="100%" height="100%">
             <defs>
               <linearGradient id="heroCap" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#38bdf8"/>
-                <stop offset="100%" stop-color="#0284c7"/>
+                <stop offset="0%" stop-color="#38bdf8" />
+                <stop offset="100%" stop-color="#0284c7" />
               </linearGradient>
             </defs>
-            <circle cx="60" cy="60" r="54" fill="#ffffff" opacity="0.25"/>
-            <ellipse cx="60" cy="62" rx="28" ry="26" fill="#fed7aa" stroke="#ea580c" stroke-width="3"/>
-            <circle cx="34" cy="62" r="9" fill="#fed7aa" stroke="#ea580c" stroke-width="2.5"/>
-            <circle cx="86" cy="62" r="9" fill="#fed7aa" stroke="#ea580c" stroke-width="2.5"/>
-            <circle cx="43" cy="68" r="5" fill="#fbcfe8"/>
-            <circle cx="77" cy="68" r="5" fill="#fbcfe8"/>
-            <path d="M 30 50 C 30 28 90 28 90 50 Z" fill="url(#heroCap)" stroke="#0369a1" stroke-width="3"/>
-            <path d="M 24 49 Q 60 42 96 49 C 96 53 24 53 24 49 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2.5"/>
-            <path d="M 43 61 Q 48 52 53 61" stroke="#0f172a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-            <path d="M 67 61 Q 72 52 77 61" stroke="#0f172a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
-            <path d="M 50 71 Q 60 88 70 71 Z" fill="#ef4444" stroke="#991b1b" stroke-width="3"/>
+            <circle cx="60" cy="60" r="54" fill="#ffffff" opacity="0.25" />
+            <ellipse cx="60" cy="62" rx="28" ry="26" fill="#fed7aa" stroke="#ea580c" stroke-width="3" />
+            <circle cx="34" cy="62" r="9" fill="#fed7aa" stroke="#ea580c" stroke-width="2.5" />
+            <circle cx="86" cy="62" r="9" fill="#fed7aa" stroke="#ea580c" stroke-width="2.5" />
+            <circle cx="43" cy="68" r="5" fill="#fbcfe8" />
+            <circle cx="77" cy="68" r="5" fill="#fbcfe8" />
+            <path d="M 30 50 C 30 28 90 28 90 50 Z" fill="url(#heroCap)" stroke="#0369a1" stroke-width="3" />
+            <path d="M 24 49 Q 60 42 96 49 C 96 53 24 53 24 49 Z" fill="#0284c7" stroke="#0369a1" stroke-width="2.5" />
+            <path d="M 43 61 Q 48 52 53 61" stroke="#0f172a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+            <path d="M 67 61 Q 72 52 77 61" stroke="#0f172a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+            <path d="M 50 71 Q 60 88 70 71 Z" fill="#ef4444" stroke="#991b1b" stroke-width="3" />
           </svg>
         </div>
 
-        <button class="btn-cartoon btn-yellow btn-large" onclick="window.app.showScreen('screen-opening');" style="width: 100%; max-width: 320px;">
+        <button class="btn-cartoon btn-yellow btn-large" onclick="window.app.showScreen('screen-opening');"
+          style="width: 100%; max-width: 320px;">
           Mulai Petualangan 🚀
         </button>
 
@@ -88,15 +99,19 @@
            ================================================================== -->
       <section class="screen" id="screen-opening">
         <div class="opening-card">
-          <div style="font-size: 3rem; margin-bottom: 4px;">🎒</div>
-          <h2 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #0284c7; margin-bottom: 6px;">
+          <div id="opening-avatar-preview"
+            style="font-size: 3.6rem; margin-bottom: 4px; transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1); display: inline-block;">
+            👦</div>
+          <h2
+            style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: #0284c7; margin-bottom: 6px;">
             Halo Sahabat Pintar!
           </h2>
           <p style="font-size: 0.95rem; font-weight: 600; color: #64748b; margin-bottom: 16px;">
-            Siapakah nama petualang cilikmu?
+            Siapakah nama petualang cilikini?
           </p>
 
-          <input type="text" id="student-name-input" class="name-input-styled" placeholder="Ketik namamu di sini..." maxlength="15" value="Budi">
+          <input type="text" id="student-name-input" class="name-input-styled" placeholder="Ketik namamu di sini..."
+            maxlength="15" value="Budi">
 
           <p style="font-size: 0.95rem; font-weight: 700; color: #475569; margin-bottom: 8px;">
             Pilih Avatar Karaktermu:
@@ -113,7 +128,8 @@
             <div class="avatar-opt" data-avatar="🐶" onclick="window.app.selectAvatar(this)">🐶</div>
           </div>
 
-          <button class="btn-cartoon btn-green btn-large" onclick="window.app.saveProfileAndStart();" style="width: 100%; margin-top: 10px;">
+          <button class="btn-cartoon btn-green btn-large" onclick="window.app.saveProfileAndStart();"
+            style="width: 100%; margin-top: 10px;">
             Ayo Masuk ke Pulau Belajar! ▶
           </button>
         </div>
@@ -123,7 +139,7 @@
            3. SCREEN: HOME (MAIN HUB / 2 WORLDS)
            ================================================================== -->
       <section class="screen" id="screen-home">
-        
+
         <!-- Welcome Hero Banner -->
         <div class="home-hero-banner">
           <div class="home-hero-text">
@@ -152,7 +168,7 @@
 
         <!-- 2 Main Worlds Grid -->
         <div class="home-worlds-grid">
-          
+
           <!-- World 1: Dunia Kata (Membaca) -->
           <div class="world-card world-card-kata" onclick="window.app.showScreen('screen-dunia-kata');">
             <div class="world-icon-wrap">
@@ -281,7 +297,8 @@
         </div>
 
         <div style="margin-bottom: 14px; text-align: center;">
-          <button class="btn-cartoon btn-purple" onclick="window.achievementsEngine.showCertificate();" style="width: 100%;">
+          <button class="btn-cartoon btn-purple" onclick="window.achievementsEngine.showCertificate();"
+            style="width: 100%;">
             🎓 Lihat Sertifikat Bintang Petualang
           </button>
         </div>
@@ -305,7 +322,9 @@
         <div class="opening-card" style="margin-bottom: 16px; padding: 18px;">
           <div style="font-size: 4rem; margin-bottom: 6px;" id="prof-avatar-big">👦</div>
           <h2 style="font-family: var(--font-display); font-size: 1.6rem; color: #0284c7;" id="prof-name-big">Budi</h2>
-          <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: var(--border-radius-pill); display: inline-block; padding: 4px 16px; font-weight: 800; color: #92400e; margin-top: 6px;" id="prof-stars-total">
+          <div
+            style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: var(--border-radius-pill); display: inline-block; padding: 4px 16px; font-weight: 800; color: #92400e; margin-top: 6px;"
+            id="prof-stars-total">
             0 ⭐
           </div>
         </div>
@@ -332,7 +351,8 @@
           </div>
         </div>
 
-        <button class="btn-cartoon btn-yellow" onclick="window.achievementsEngine.showCertificate();" style="width: 100%; margin-top: auto;">
+        <button class="btn-cartoon btn-yellow" onclick="window.achievementsEngine.showCertificate();"
+          style="width: 100%; margin-top: auto;">
           📜 Tampilkan Sertifikat Kelulusan
         </button>
       </section>
@@ -380,7 +400,7 @@
               <span class="setting-desc">Pelafalan huruf, kata, & angka</span>
             </div>
             <label class="switch">
-              <input type="checkbox" id="setting-voice-toggle" checked onchange="window.app.toggleVoice(this.checked)">
+              <input type="checkbox" id="setting-voice-toggle" onchange="window.app.toggleVoice(this.checked)">
               <span class="slider"></span>
             </label>
           </div>
@@ -392,11 +412,13 @@
             Tentang Petualangan Pintar
           </h3>
           <p style="font-size: 0.85rem; color: #64748b; line-height: 1.4;">
-            Aplikasi media pembelajaran interaktif game-based learning untuk siswa Sekolah Dasar Kelas 1. Membantu anak belajar membaca dan berhitung dengan ceria bersama Piko.
+            Aplikasi media pembelajaran interaktif game-based learning untuk siswa Sekolah Dasar Kelas 1. Membantu anak
+            belajar membaca dan berhitung dengan ceria bersama Piko.
           </p>
         </div>
 
-        <button class="btn-cartoon btn-orange" onclick="window.app.confirmResetProgress();" style="width: 100%; margin-top: auto;">
+        <button class="btn-cartoon btn-orange" onclick="window.app.confirmResetProgress();"
+          style="width: 100%; margin-top: auto;">
           🔄 Reset Ulang Petualangan
         </button>
       </section>
@@ -419,7 +441,8 @@
           +30 ⭐
         </div>
         <div class="modal-actions-row">
-          <button class="btn-cartoon btn-green btn-large" onclick="window.app.closeLevelVictoryModal();" style="width: 100%;">
+          <button class="btn-cartoon btn-green btn-large" onclick="window.app.closeLevelVictoryModal();"
+            style="width: 100%;">
             Lanjutkan Petualangan ▶
           </button>
         </div>
@@ -432,7 +455,8 @@
         <div style="font-size: 4rem; margin-bottom: 8px;" id="modal-badge-icon">
           🏆
         </div>
-        <div style="font-family: var(--font-display); font-size: 0.9rem; font-weight: 800; color: #ca8a04; text-transform: uppercase; letter-spacing: 1px;">
+        <div
+          style="font-family: var(--font-display); font-size: 0.9rem; font-weight: 800; color: #ca8a04; text-transform: uppercase; letter-spacing: 1px;">
           ✨ Lencana Baru Terbuka! ✨
         </div>
         <h3 class="modal-title" id="modal-badge-title" style="color: #92400e; margin-top: 4px;">
@@ -441,7 +465,8 @@
         <p class="modal-body-text" id="modal-badge-desc" style="margin-bottom: 20px;">
           Selamat kamu mendapatkan prestasi baru!
         </p>
-        <button class="btn-cartoon btn-yellow btn-large" onclick="window.achievementsEngine.closeUnlockModal();" style="width: 100%;">
+        <button class="btn-cartoon btn-yellow btn-large" onclick="window.achievementsEngine.closeUnlockModal();"
+          style="width: 100%;">
           Keren Banget! 🎉
         </button>
       </div>
@@ -449,27 +474,34 @@
 
     <!-- Modal 3: Certificate Generator -->
     <div class="modal-overlay" id="modal-certificate">
-      <div class="modal-card-popup" style="max-width: 440px; border-color: #fde047; background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);">
+      <div class="modal-card-popup"
+        style="max-width: 440px; border-color: #fde047; background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);">
         <div style="border: 4px dashed #f59e0b; border-radius: 20px; padding: 18px 12px;">
           <div style="font-size: 2.8rem; margin-bottom: 4px;">🎓 ⭐ 🏆</div>
-          <div style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 800; color: #ca8a04; letter-spacing: 1px; text-transform: uppercase;">
+          <div
+            style="font-family: var(--font-display); font-size: 0.85rem; font-weight: 800; color: #ca8a04; letter-spacing: 1px; text-transform: uppercase;">
             Sertifikat Kelulusan Petualangan
           </div>
-          <h2 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; color: #0284c7; margin: 6px 0;">
+          <h2
+            style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; color: #0284c7; margin: 6px 0;">
             PETUALANG PINTAR SD KELAS 1
           </h2>
           <p style="font-size: 0.85rem; color: #64748b;">Diberikan dengan bangga kepada:</p>
           <div style="font-size: 2.5rem; margin: 4px 0;" id="cert-avatar">👦</div>
-          <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: #be185d;" id="cert-student-name">
+          <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; color: #be185d;"
+            id="cert-student-name">
             Budi
           </h3>
           <p style="font-size: 0.85rem; font-weight: 700; color: #475569; margin: 8px 0;">
             Telah berhasil mempelajari Membaca Dasar & Berhitung Dasar dengan mengumpulkan:
           </p>
-          <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: #d97706; margin-bottom: 12px;" id="cert-stars">
+          <div
+            style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: #d97706; margin-bottom: 12px;"
+            id="cert-stars">
             100 ⭐
           </div>
-          <div style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 8px;">
+          <div
+            style="display: flex; justify-content: space-between; font-size: 0.75rem; font-weight: 700; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 8px;">
             <span>Sahabat Belajar: Piko 👦</span>
             <span id="cert-date">29 Agustus 2026</span>
           </div>
@@ -478,7 +510,8 @@
           <button class="btn-cartoon btn-primary" onclick="window.print();" style="flex: 1;">
             🖨️ Cetak
           </button>
-          <button class="btn-cartoon btn-green" onclick="window.achievementsEngine.closeCertificate();" style="flex: 1;">
+          <button class="btn-cartoon btn-green" onclick="window.achievementsEngine.closeCertificate();"
+            style="flex: 1;">
             Tutup ✓
           </button>
         </div>
@@ -497,4 +530,5 @@
   <script src="js/app.js"></script>
 
 </body>
+
 </html>

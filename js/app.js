@@ -31,17 +31,87 @@ class AppController {
 
     // Check if user has already set profile before
     const profile = window.stateManager ? window.stateManager.data.profile : null;
-    if (profile && profile.name && profile.name !== 'Petualang Cilik') {
-      // User is returning
-      const nameInput = document.getElementById('student-name-input');
-      if (nameInput) nameInput.value = profile.name;
+    if (profile) {
+      if (profile.name && profile.name !== 'Petualang Cilik') {
+        const nameInput = document.getElementById('student-name-input');
+        if (nameInput) nameInput.value = profile.name;
+      }
+      if (profile.avatar) {
+        const previewEl = document.getElementById('opening-avatar-preview');
+        if (previewEl) previewEl.textContent = profile.avatar;
+        const matchingOpt = document.querySelector(`.avatar-opt[data-avatar="${profile.avatar}"]`);
+        if (matchingOpt) {
+          document.querySelectorAll('.avatar-opt').forEach(opt => opt.classList.remove('selected'));
+          matchingOpt.classList.add('selected');
+        }
+      }
     }
 
-    // Auto-advance loading bar on splash
-    setTimeout(() => {
-      const bar = document.getElementById('splash-progress-bar');
-      if (bar) bar.style.width = '100%';
-    }, 300);
+    // Auto-detect device and responsive screen size
+    this.initDeviceDetection();
+  }
+
+  // --- Automatic Device Detection & Layout Adaptation ---
+  initDeviceDetection() {
+    const updateDeviceClasses = () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+      
+      document.body.classList.remove('device-mobile', 'device-tablet', 'device-desktop', 'orientation-portrait', 'orientation-landscape');
+      
+      if (w < 640) {
+        document.body.classList.add('device-mobile');
+      } else if (w < 1024) {
+        document.body.classList.add('device-tablet');
+      } else {
+        document.body.classList.add('device-desktop');
+      }
+
+      if (w > h) {
+        document.body.classList.add('orientation-landscape');
+      } else {
+        document.body.classList.add('orientation-portrait');
+      }
+
+      if (isTouch) {
+        document.body.classList.add('touch-enabled');
+      }
+
+      // Update fullscreen button icon if in fullscreen
+      const fsBtn = document.getElementById('btn-fullscreen');
+      if (fsBtn) {
+        const isFS = document.fullscreenElement || document.webkitFullscreenElement;
+        fsBtn.textContent = isFS ? '🗗' : '⛶';
+        fsBtn.title = isFS ? 'Keluar Layar Penuh' : 'Mode Layar Penuh (Fullscreen)';
+      }
+    };
+
+    updateDeviceClasses();
+    window.addEventListener('resize', updateDeviceClasses);
+    window.addEventListener('orientationchange', updateDeviceClasses);
+    document.addEventListener('fullscreenchange', updateDeviceClasses);
+    document.addEventListener('webkitfullscreenchange', updateDeviceClasses);
+  }
+
+  // --- Toggle Fullscreen Mode (Ideal for Laptop & Tablet) ---
+  toggleFullscreen() {
+    if (window.audioEngine) window.audioEngine.playClick();
+    
+    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+      const elem = document.getElementById('app-container') || document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen().catch(err => console.warn("Fullscreen request error:", err));
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(err => console.warn("Exit fullscreen error:", err));
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      }
+    }
   }
 
   // --- Screen Navigation Router ---
@@ -134,6 +204,19 @@ class AppController {
   selectAvatar(el) {
     document.querySelectorAll('.avatar-opt').forEach(opt => opt.classList.remove('selected'));
     el.classList.add('selected');
+    
+    const avatar = el.getAttribute('data-avatar');
+    const previewEl = document.getElementById('opening-avatar-preview');
+    if (previewEl && avatar) {
+      previewEl.textContent = avatar;
+      previewEl.style.transform = 'scale(1.3) rotate(8deg)';
+      setTimeout(() => {
+        if (previewEl) {
+          previewEl.style.transform = 'scale(1) rotate(0deg)';
+        }
+      }, 180);
+    }
+
     if (window.audioEngine) window.audioEngine.playPop();
   }
 
