@@ -14,17 +14,7 @@ const NUMBER_ITEMS = [
   { num: 7, name: 'Tujuh', icon: '🎈' },
   { num: 8, name: 'Delapan', icon: '🍓' },
   { num: 9, name: 'Sembilan', icon: '🦆' },
-  { num: 10, name: 'Sepuluh', icon: '🍭' },
-  { num: 11, name: 'Sebelas', icon: '🐟' },
-  { num: 12, name: 'Dua Belas', icon: '🍒' },
-  { num: 13, name: 'Tiga Belas', icon: '🦋' },
-  { num: 14, name: 'Empat Belas', icon: '🍬' },
-  { num: 15, name: 'Lima Belas', icon: '🍪' },
-  { num: 16, name: 'Enam Belas', icon: '🚀' },
-  { num: 17, name: 'Tujuh Belas', icon: '🧁' },
-  { num: 18, name: 'Delapan Belas', icon: '🍩' },
-  { num: 19, name: 'Sembilan Belas', icon: '🍉' },
-  { num: 20, name: 'Dua Puluh', icon: '👑' }
+  { num: 10, name: 'Sepuluh', icon: '🍭' }
 ];
 
 class DuniaAngkaManager {
@@ -77,7 +67,7 @@ class DuniaAngkaManager {
   }
 
   /* --------------------------------------------------------------------------
-     1. MENGENAL ANGKA (1 - 20 WITH TAP-TO-COUNT)
+     1. MENGENAL ANGKA (1 - 10 WITH TAP-TO-COUNT)
      -------------------------------------------------------------------------- */
   initMengenalAngka(index = 0) {
     this.currentNumberIndex = (index + NUMBER_ITEMS.length) % NUMBER_ITEMS.length;
@@ -89,7 +79,7 @@ class DuniaAngkaManager {
       window.piko.say(`Ini adalah angka ${item.num} (${item.name}). Ketuk setiap ${item.icon} untuk berhitung ya!`, 'idle', true);
     }
 
-    if (this.currentNumberIndex === 19 && window.stateManager) {
+    if (this.currentNumberIndex === 9 && window.stateManager) {
       window.stateManager.unlockAchievement('pakar_angka');
     }
 
@@ -105,7 +95,7 @@ class DuniaAngkaManager {
 
     arena.innerHTML = `
       <div class="game-score-badge-row">
-        <span class="game-progress-indicator">Angka ${item.num} dari 20</span>
+        <span class="game-progress-indicator">Angka ${item.num} dari 10</span>
         <button class="btn-cartoon btn-yellow btn-icon-only" onclick="window.duniaAngka.pronounceCurrentNumber();" title="Dengarkan Angka">
           🔊
         </button>
@@ -144,7 +134,7 @@ class DuniaAngkaManager {
   }
 
   handleCountItemTap(index, total) {
-    const el = document.getElementById(`count-item-${index}`);
+    const el = document.getElementById('count-item-${index}');
     if (el && !el.classList.contains('counted')) {
       el.classList.add('counted');
       if (window.audioEngine) {
@@ -155,7 +145,7 @@ class DuniaAngkaManager {
 
       if (this.tapCount === total) {
         if (window.audioEngine) window.audioEngine.playCorrect();
-        if (window.piko) window.piko.say(`Hebat! Semuanya ada ${total}!`, 'happy', false);
+        if (window.piko) window.piko.say('Hebat! Semuanya ada ${total}!', 'happy', false);
         if (window.stateManager) window.stateManager.addStars(5);
       }
     }

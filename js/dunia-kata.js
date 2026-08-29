@@ -18,7 +18,7 @@ const ALPHABET_DATA = [
   { letter: 'L', lower: 'l', word: 'Lemon', icon: '🍋', syllables: ['Le', 'mon'] },
   { letter: 'M', lower: 'm', word: 'Mobil', icon: '🚗', syllables: ['Mo', 'bil'] },
   { letter: 'N', lower: 'n', word: 'Nanas', icon: '🍍', syllables: ['Na', 'nas'] },
-  { letter: 'O', lower: 'o', word: 'Obor', icon: '🪵', syllables: ['O', 'bor'] },
+  { letter: 'O', lower: 'o', word: 'Obat', icon: '💊', syllables: ['O', 'bat'] },
   { letter: 'P', lower: 'p', word: 'Pisang', icon: '🍌', syllables: ['Pi', 'sang'] },
   { letter: 'Q', lower: 'q', word: 'Quran', icon: '📖', syllables: ['Qur', 'an'] },
   { letter: 'R', lower: 'r', word: 'Roti', icon: '🍞', syllables: ['Ro', 'ti'] },
@@ -182,11 +182,11 @@ class DuniaKataManager {
 
     // Generate random distractors
     let distractors = ALPHABET_DATA.filter(i => i.letter !== targetLetter)
-      .sort(() => 0.5 - Math.random())
-      .slice(0, 5)
+      .sort(() => 0.3 - Math.random())
+      .slice(0, 2)
       .map(i => i.letter);
 
-    let balloonLetters = [targetLetter, targetLetter, ...distractors].sort(() => 0.5 - Math.random());
+    let balloonLetters = [targetLetter, ...distractors].sort(() => 0.3 - Math.random());
 
     if (window.piko) {
       window.piko.say(`Ayo bantu Piko mencari semua huruf "${targetLetter}"!`, 'thinking', true);

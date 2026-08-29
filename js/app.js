@@ -57,9 +57,9 @@ class AppController {
       const w = window.innerWidth;
       const h = window.innerHeight;
       const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-      
+
       document.body.classList.remove('device-mobile', 'device-tablet', 'device-desktop', 'orientation-portrait', 'orientation-landscape');
-      
+
       if (w < 640) {
         document.body.classList.add('device-mobile');
       } else if (w < 1024) {
@@ -97,7 +97,7 @@ class AppController {
   // --- Toggle Fullscreen Mode (Ideal for Laptop & Tablet) ---
   toggleFullscreen() {
     if (window.audioEngine) window.audioEngine.playClick();
-    
+
     if (!document.fullscreenElement && !document.webkitFullscreenElement) {
       const elem = document.getElementById('app-container') || document.documentElement;
       if (elem.requestFullscreen) {
@@ -204,7 +204,7 @@ class AppController {
   selectAvatar(el) {
     document.querySelectorAll('.avatar-opt').forEach(opt => opt.classList.remove('selected'));
     el.classList.add('selected');
-    
+
     const avatar = el.getAttribute('data-avatar');
     const previewEl = document.getElementById('opening-avatar-preview');
     if (previewEl && avatar) {
@@ -267,7 +267,7 @@ class AppController {
   renderAngkaLevels() {
     const data = window.stateManager.data.levels.angka;
     const topics = [
-      { id: 'mengenal', title: 'Mengenal Angka 1-20', desc: 'Ketuk benda untuk berhitung', icon: '🔢', bg: '#dcfce7', color: '#15803d' },
+      { id: 'mengenal', title: 'Mengenal Angka 1-10', desc: 'Ketuk benda untuk berhitung', icon: '🔢', bg: '#dcfce7', color: '#15803d' },
       { id: 'hitung', title: 'Hitung Benda', desc: 'Hitung jumlah benda lucu di layar', icon: '🍎', bg: '#fee2e2', color: '#b91c1c' },
       { id: 'urut', title: 'Urutkan Angka', desc: 'Lengkapi gerbong kereta angka', icon: '🚂', bg: '#e0f2fe', color: '#0284c7' },
       { id: 'tambah', title: 'Penjumlahan', desc: 'Belajar menjumlahkan benda konkret', icon: '➕', bg: '#fef3c7', color: '#b45309' },
